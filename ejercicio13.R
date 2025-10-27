@@ -6,8 +6,7 @@
 # Solución:
 
 x <- c(4, 9, NA, 16, NA)
-vectorSinNA <- x[!is.na(x)]
-x[is.na(x)] <- mean(vectorSinNA) 
+x[is.na(x)] <- mean(x[!is.na(x)]) 
 print(x)
 
 # mean(x, na.rm = TRUE) Otra forma de hacerlo sin filtrar los NA
