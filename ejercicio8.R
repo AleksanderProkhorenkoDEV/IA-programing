@@ -6,3 +6,7 @@
 
 edades <- c(22, 34, 29, 41, 18, 55, 23, 37)
 edades[mean(edades) < edades]
+
+# Si quisieramos convertir en NaN los que son menores
+
+edades[mean(edades) > edades] <- NA
