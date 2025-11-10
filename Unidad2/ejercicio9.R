@@ -26,3 +26,9 @@ df_scores <- data.frame(
   stringsAsFactors = FALSE
 )
 
+merge(df_ids, df_scores, by= c("user"), all = TRUE)
+
+# Puede tener NA, porque son usuarios que esten registrados en el sistema, 
+# pero que no tengan puntuación, por no haber jugado partidas, o usuarios
+# que no han terminado de darse de alta en una aplicación y les falta información
+# adicional.
