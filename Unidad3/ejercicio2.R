@@ -6,13 +6,14 @@
 #   Use switch().
 #   https://r-coder.com/funcion-switch-r/
 
-categoria <- function(nivel) {
-  switch(nivel,
-        1 = "bajo",
-        2 = "medio",
-        3 = "alto",
-        "desconocido"
-        )
+categoria <- function(n) {
+  switch(n, 1 = {
+    "bajo"
+  }, 2 = {
+    "medio"
+  }, 3 = {
+    "alto"
+  }, stop("desconocido: ", nivel))
 }
 
-categoria(1)
+categoria(4)
