@@ -5,6 +5,7 @@
 #   Genere números uniformes U(0,1) hasta que la suma supere 3.
 #   Cuente cuántos números fueron necesarios.
 
+set.seed(123)
 suma = 0
 count = 0
 while(suma <= 3){
