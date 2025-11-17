@@ -7,13 +7,12 @@
 #   https://r-coder.com/funcion-switch-r/
 
 categoria <- function(n) {
-  switch(n, 1 = {
-    "bajo"
-  }, 2 = {
-    "medio"
-  }, 3 = {
-    "alto"
-  }, stop("desconocido: ", nivel))
+  switch(n, 
+  "1 " = "bajo", 
+  "2"  =  "medio", 
+  "3"  =  "alto", 
+  "desconocido"
+  )
 }
 
 categoria(4)
