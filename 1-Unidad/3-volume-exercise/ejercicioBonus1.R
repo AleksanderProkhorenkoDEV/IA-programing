@@ -10,9 +10,14 @@
 count <- 0
 x <- function(n){
   count <<- count + 1 
-  if(n != 6) x(sample(1:6,1))
-  cat("Iteraciones recursivas:", n, "\n")
+  if(n != 6){
+    x(sample(1:6,1))
+  }else{
+    print("Encontre el 6")
+    return(count)
+    count <<- 0
+  }
 }
 
 x(sample(1:6,1))
-cat("Ha tardado:", count)
+
