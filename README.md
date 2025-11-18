@@ -23,7 +23,7 @@ Repository containing programming exercises from the **AI and Big Data Specializ
 - - Data cleaning and preprocessing
 - Subsetting and filtering data
 - Basic data analysis operations
-- Introduction to dplyr (if covered)
+
 
 ## 🛠️ Technologies Used
 - **R** (Primary language)
