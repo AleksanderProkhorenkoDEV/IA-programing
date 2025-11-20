@@ -1,6 +1,6 @@
 # Apartado 3: Cargue los datos en un Dataframe 
 
-setwd("D:\\Desarrollo\\IA-programing\\2-Unidad\\02-tarea")
+setwd("/home/alumnot/Escritorio/PIA/ejercicios/2-Unidad/02-tarea/")
 
 data <- read.csv2("69959.csv")
 head(data)
@@ -30,8 +30,10 @@ extraer_provincia <- function(dataFrame, param){
       #Comprobaciones y validaciones
       if(!is.data.frame(dataFrame)) stop("El parametro dataFrame, debe ser un data frame.")
       if(length(grep(param, dataFrame)) == 0) stop(paste("No se encuentra la provincia: ", param, " en el dataframe"))
+  
+  
               # Busqueda de coincidencias dentro de la columa pronvincias y extraemos los datos que queremos.
-      res <- dataFrame[grepl(param, dataFrame$provincias), c("ocupacion", "periodo", "profesionales")]
+      res <- dataFrame[grepl(param, dataFrame$provincias) & dataFrame$sexo == "Total", c("ocupacion", "periodo", "profesionales")]
       return(res)
 }
 
