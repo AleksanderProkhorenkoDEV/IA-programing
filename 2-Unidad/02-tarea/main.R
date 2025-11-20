@@ -45,3 +45,40 @@ filtrado <- subset(data, (data$ocupacion == "91 Empleados domésticos"
                           & data$periodo == "2022")
                           & data$sexo != "Total"
                    )
+
+#Apartado 7: Generar Resumen
+filtrado <- filtrado[,-c(1,3,5)]
+summary <- data.frame(provincia = character(), 
+                      total = numeric(), 
+                      hombres = numeric(), 
+                      mujeres = numeric(), 
+                      prop_hombres = numeric()
+                      )
+
+# Hacemos un for que recorra las filas de 2, en 2, porque tenemos la fila de hombres y mujeres,
+# si vamos de dos en dos, accedemos siempre a los hombres y así evitamos salirnos del bucle.
+for (i in seq(1, nrow(filtrado), by=2)){
+  print(filtrado[i,])
+  provincia <-filtrado[i,1]
+  total <- sum(filtrado[i,3] + filtrado[i+1,3])
+  hombres <-  filtrado[i,3]
+  mujeres <- filtrado[i+1,3]
+  prop_hombres <- round((hombres / total) * 100, 2)
+  #Creamos la fila
+  newRow <- data.frame(
+        provincia, 
+        total,
+        hombres,
+        mujeres,
+        prop_hombres
+        )
+  # juntamos la fila con el dataframe summary
+  summary <- rbind(summary, newRow)
+}
+#Ordenamos el dataframe
+summary <- summary[order(summary$provincia),]
+
+
+
+
+
