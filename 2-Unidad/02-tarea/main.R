@@ -30,7 +30,7 @@ extraer_provincia <- function(dataFrame, param){
       #Comprobaciones y validaciones
       if(!is.data.frame(dataFrame)) stop("El parametro dataFrame, debe ser un data frame.")
       if(length(grep(param, dataFrame)) == 0) stop(paste("No se encuentra la provincia: ", param, " en el dataframe"))
-  
+      if(!is.character(param)) stop("La variable param debe ser un string")
   
               # Busqueda de coincidencias dentro de la columa pronvincias y extraemos los datos que queremos.
       res <- dataFrame[grepl(param, dataFrame$provincias) & dataFrame$sexo == "Total", c("ocupacion", "periodo", "profesionales")]
