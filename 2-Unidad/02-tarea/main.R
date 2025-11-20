@@ -15,6 +15,7 @@ head(data)
 # Creación de una función al que le pasas una columna y un valor y te automátiza el proceso.
 clean_column <- function(col, val){
   col[which(col == "")] <- val
+  return(col)
 }
 
 data$comunidad <- clean_column(data$comunidad, "nacional")
@@ -22,3 +23,16 @@ data$provincias <- clean_column(data$provincias, NA)
 # Primero con gsub obtenemos las cadenas sin ".", despues las casteamos.
 data$profesionales <- as.numeric(gsub("\\.", "", data$profesionales))
 head(data)
+
+#Apartado 5: Implemente una función para extraer datos
+
+extraer_provincia <- function(dataFrame, param){
+      #Comprobaciones y validaciones
+      if(!is.data.frame(dataFrame)) stop("El parametro dataFrame, debe ser un data frame.")
+      if(length(grep(param, dataFrame)) == 0) stop(paste("No se encuentra la provincia: ", param, " en el dataframe"))
+              # Busqueda de coincidencias dentro de la columa pronvincias y extraemos los datos que queremos.
+      res <- dataFrame[grepl(param, dataFrame$provincias), c("ocupacion", "periodo", "profesionales")]
+      return(res)
+}
+
+granada <- extraer_provincia(data, "Granada")
