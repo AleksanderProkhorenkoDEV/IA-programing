@@ -36,3 +36,12 @@ extraer_provincia <- function(dataFrame, param){
 }
 
 granada <- extraer_provincia(data, "Granada")
+
+#Apartado 6: Filtrado de datos
+
+filtrado <- subset(data, (data$ocupacion == "91 Empleados domésticos" 
+                          & data$comunidad != "nacional" 
+                          & !is.na(data$provincias)
+                          & data$periodo == "2022")
+                          & data$sexo != "Total"
+                   )
